@@ -1,71 +1,76 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-function validaCampo() {
-    var frm = document.formLogin;
-    var email = frm.email.value;
-    var senha = frm.password.value;
-    
-    if(email == "") {
-        alert("Campo Email Obrigatório !!");
-        document.getElementById("nome").focus();
-        return false;
-    } else if (senha == "") {
-        alert("Campo  Senha Obrigatório !!");
-        document.getElementById("password").focus();
-        return false;
-    } else {
-        caminhourl = "Servlet?acao=Logar";
-        frm.action = caminhourl;
-        frm.submit();
-        return true;
-    }  
-}
+/* Validação dos dados inseridos ao realizar o cadastro de usuários */
 
-function GravarUsuario (form) {
+function GravarUsuario(form) {
     form = document.formCad;
-    var nome = form.name.value;
+    var name = form.name.value;
     var username = form.username.value;
-    var senha = form.password.value;
-    var confSenha = form.password_confirm.value;
+    var password = form.password.value;
+    var passwordConfirm = form.password_confirm.value;
     var email = form.email.value;
     var tipoUsuario = form.tipoUsuario.value;
-    
-    if (nome = "") {
-        alert("Campo nome obrigatorio.");
-        document.getElementById("name").focus();
-       return false;
 
-    } 
-    else if (senha = "") {
-        alert("Campo senha obrigatorio.");
-        document.getElementById("password").focus();
+    if (name === "") {
+        alert("É obrigatório definir um nome!");
+        document.querySelector('#name').focus();
         return false;
 
-    } 
-  /*  else if (senha != confSenha) {
-        alert("A senha está diferente.");
-        document.getElementById("password_confirm").focus();
+    } else if (username === "") {
+        alert("É obrigatório definir um apelido!");
+        document.querySelector('#username').focus();
         return false;
 
-    } */
-    else if (email = "") {
-        alert("Campo email obrigatorio.");
-        document.getElementById("email").focus();
-       return false;
-
-    } 
-    else if (tipoUsuario = "") {
-        alert("Campo tipo obrigatorio.");
-        document.getElementById("tipoUsuario").focus();
+    } else if (password === "") {
+        alert("É obrigatório definir uma senha!");
+        document.querySelector('#password').focus();
         return false;
 
-    } 
-    else if (form.acao.value == "gravar") {
+    } else if (passwordConfirm === "") {
+        alert("Digite a senha novamente para confirmar!");
+        document.querySelector('#password_confirm').focus();
+        return false;
+
+    } else if (passwordConfirm !== password) {
+        alert("As senhas digitadas são diferentes!");
+        document.querySelector('#password_confirm').focus();
+        return false;
+
+    } else if (email === "") {
+        alert("É obrigatório definir um email!");
+        document.querySelector('#email').focus();
+        return false;
+
+    } else if (tipoUsuario === "") {
+        alert("É obrigatório definir um tipo de usuário!");
+        document.querySelector('#tipoUsuario').focus();
+        return false;
+
+    } else if (form.acao.value === "gravar") {
         alert("Teste");
         caminhourl = "/MultiplaEscolhaViewController/Servlet?acao=GravarUsuario";
+        form.action = caminhourl;
+        form.submit();
+    }
+}
+
+/* Validação dos dados inseridos ao fazer login */
+
+function ValidaLogin(form) {
+    form = document.formLogin;
+    var email = form.email.value;
+    var password = form.password.value;
+
+    if (email === "") {
+        alert("É obrigatório informar o email cadastrado!");
+        document.querySelector('#email').focus();
+        return false;
+
+    } else if (password === "") {
+        alert("É obrigatório informar a senha!");
+        document.querySelector('#password').focus();
+        return false;
+    } else {
+        alert("Teste");
+        caminhourl = "/MultiplaEscolhaViewController/Servlet?acao=Logar";
         form.action = caminhourl;
         form.submit();
     }
