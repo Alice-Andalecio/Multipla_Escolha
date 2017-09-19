@@ -129,8 +129,9 @@
                         <br>
                         <h6><a href="esqueceuSenha.jsp">Esqueceu a senha? Clique aqui!</a></h6>
                         <br>
-
-                        <a class="waves-effect waves-light btn" onclick="validaCampo()">Entrar</a>
+                        
+                        <button type="submit" name="entrar" id="entrar" class="waves-effect waves-light btn" onclick="ValidaLogin(document.formLogin)">Entrar</button>
+     
                     </div>
 
                 </div>   		 		
@@ -219,6 +220,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/materialize.js"></script>
+        <script src="js/validacao.js"></script>
 
     </body>
 </html>

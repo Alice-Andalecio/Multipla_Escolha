@@ -91,8 +91,7 @@
    ================================================== -->
         <form id="intro" name="formCad" method="POST">
             <input type='hidden' name='acao' value='gravar'>
-
-
+            
             <div class="shadow-overlay"></div>
 
             <div class="intro-content">
@@ -151,7 +150,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="waves-effect waves-light btn" onclick="GravarUsuario(document.formCad)">Criar Conta</button>
+                        <button type="submit" name="criaConta" id="criaConta" class="waves-effect waves-light btn" onclick="GravarUsuario(document.formCad)">Criar Conta</button>
 
                     </div>
 
@@ -241,6 +240,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/materialize.js"></script>
-
+        <script src="js/validacao.js"></script>
+  
     </body>
 </html>
